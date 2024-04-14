@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhotoEditorApp</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="render.js"></script>
+</head>
+
+<body>
+    <button id="title" type="button"  class="p-10 text-red-400">Hello World</button>
+
+    <script>
+        $(document).ready(function(){
+            $('#title').off('click').on('click', function(){
+                $(this).addClass('bg-slate-700');
+            })
+        })
+        
+   
+    </script>
+</body>
+
+</html>
