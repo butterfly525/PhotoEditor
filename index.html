@@ -7,23 +7,60 @@
     <title>PhotoEditorApp</title>
     <script src="jquery-3.7.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="render.js"></script>
+
 </head>
 
-<body>
-    <button id="title" type="button"  class="p-10 text-red-400">Hello World</button>
+<body class="h-screen overflow-hidden">
+    <div id="container" class="container mx-auto px-4 py-5">
+        <!-- Панель с кнопками -->
+        <div id="buttonsPanel" class="flex justify-between border-b-2 border-blue-500 pb-4 mb-4">
+            <button id="openFile" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Открыть файл
+            </button>
+            <button id="save" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Сохранить
+            </button>
+            <button id="undo" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Отменить
+            </button>
+            <button id="redo" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Повторить
+            </button>
+            <button id="clear" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Очистить поле
+            </button>
 
-    <script>
-        $(document).ready(function(){
-            $('#title').off('click').on('click', function(){
-                $(this).addClass('bg-slate-700');
-            })
-        })
-        
-   
-    </script>
+        </div>
+        <div class="flex justify-start border-b-2 border-blue-500 pb-4 mb-4">
+            <!-- выбор фильтра -->
+            <select id="selectFilter">
+                <option value="option1">Опция 1</option>
+                <option value="option2">Опция 2</option>
+                <option value="option3">Опция 3</option>
+            </select>
+        </div>
+        <!-- Div с ползунком и кнопкой "Применить" -->
+        <div id="sliderAndApply" class="flex justify-start items-centert space-x-4  mb-4">
+            <input id="slider" type="range" min="1" max="100" value="50" class="slider">
+            <button id="apply" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Применить
+            </button>
+        </div>
+        <input type="file" id="fileUploadField" style="display:none">
+        <!-- Панель для изображения -->
+        <div id="imagePanel" style="display:none" class="flex justify-center items-center w-fit h-fit border-2 border-blue-500 mx-auto mb-4">
+            <!-- Здесь будет изображение -->
+
+
+        </div>
+        <!-- Панель для отображения изменений -->
+        <div id="changesPanel" class="border-2 border-blue-500 p-4">
+            <!-- Здесь будут отображаться изменения -->
+        </div>
+    </div>
+    <script src="renderer.js"></script>
 </body>
+
 
 </html>
